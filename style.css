@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background-color: #C1BFFA; /* Cor de fundo padrão */
+  --container-background: white;
+  --border-color: #1B1B1B;
+  --shadow-color: #1B1B1B;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#empresa {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#empresa img {
+  height: 50px;
+  margin-right: 15px;
+}
+
+#empresa h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 6px;
+  background-color: var(--container-background);
+  border: 1px solid var(--border-color);
+  box-shadow: 4px 4px 0px var(--shadow-color);
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.ajustes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+  width: 100%;
+}
+
+.ajustes a {
+  text-decoration: none;
+  color: #1B1B1B;
+  font-weight: 500;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  transition: all 0.3s;
+  font-size: 0.95em;
+}
+
+.ajustes a:hover {
+  background-color: #f0f0f0;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center; /* Centraliza os itens do formulário */
+}
+
+#form p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 0.95em;
+  gap: 10px;
+  width: 100%;
+  justify-content: center; /* Centraliza label e input na mesma linha */
+}
+
+#form p label {
+  text-align: right;
+  flex-basis: 180px;
+  max-width: 180px;
+  flex-shrink: 0;
+}
+
+#form input[type="number"] {
+  padding: 6px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  width: 150px;
+  font-size: 0.9em;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+#form p input[type="button"] {
+  padding: 8px 16px;
+  background-color: #1B1B1B;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+  font-size: 0.95em;
+  align-self: center; /* Centraliza o botão */
+  width: auto; /* Permite que o botão se ajuste ao conteúdo */
+}
+
+section div:last-child {
+  text-align: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+#valordifal {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1B1B1B;
+  margin-top: 5px;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 15px;
+  color: #1B1B1B;
+  font-weight: 400;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  section {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .ajustes {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #form p {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 5px;
+  }
+
+  #form input[type="number"] {
+    width: 100%;
+  }
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  width: 100%;
+}

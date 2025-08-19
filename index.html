@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo DIFAL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header id="empresa">
+        <img src="{{ url_for('static', filename='imagens/vixpar_cover.jpg') }}" alt="Logo da Empresa">
+    </header>
+
+    <section>
+        <h1 class="titulo">Calcule o DIFAL:</h1>
+
+        <form id="form">
+            <div class="ajustes">
+                <label for="ufOrigem">UF de Origem:</label>
+                <select name="ufOrigem" id="ufOrigem" required>
+                    <option value="">Selecione...</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+            </div>
+
+            <div class="ajustes">
+                <label for="ufDestino">UF de Destino:</label>
+                <select name="ufDestino" id="ufDestino" required>
+                    <option value="">Selecione...</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Valor do item: <input type="number" name="calculaItem" id="item" step="0.01" required></p>
+                <p>Origem Mercadoria: <input type="number" name="calculaCST" id="cst" required></p>
+                <p>Valor frete: <input type="number" name="calculaFrete" id="frete" step="0.01" required></p>
+                <p>Valor IPI: <input type="number" name="calculaIPI" id="ipi" step="0.01" required></p>
+                <p>
+                    <input type="button" value="Calcular" onclick="calcularDIFAL()">
+                    <input type="button" value="Limpar" onclick="limparFormulario()">
+                </p>
+            </div>
+        </form>
+
+        <div>
+            <h3>Valor do DIFAL: <p id="valordifal">00</p></h3>
+        </div>
+    </section>
+
+    <footer><p>&copy;GabrielOS@vix.com.br</p></footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        function limparFormulario() {
+            // Limpa os campos do formulário
+            document.getElementById('ufOrigem').value = '';
+            document.getElementById('ufDestino').value = '';
+            document.getElementById('item').value = '';
+            document.getElementById('cst').value = '';
+            document.getElementById('frete').value = '';
+            document.getElementById('ipi').value = '';
+            
+            // Reseta o resultado
+            document.getElementById('valordifal').textContent = '00';
+        }
+    </script>
+</body>
+</html>
