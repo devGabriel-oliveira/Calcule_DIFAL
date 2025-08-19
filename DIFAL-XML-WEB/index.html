@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular DIFAL</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+    <h1>Processar XML</h1>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" name="file" accept=".xml" required>
+        <button type="submit">Upload</button>
+    </form>
+    <pre id="output"></pre>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                document.getElementById('output').textContent = 'No file selected';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            fetch('/process_xml', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('output').textContent = 'Error: ' + data.error;
+                } else {
+                    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+                }
+            })
+            .catch(error => {
+                document.getElementById('output').textContent = 'Error: ' + error.message;
+            });
+        });
+    </script>
+</body>
+</html>
